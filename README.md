@@ -1,5 +1,6 @@
 # eww-calculator
 ![A demonstration of the widget running with SwayFX](https://raw.githubusercontent.com/Pre-Suffix/eww-calculator/refs/heads/main/example.png)
+
 *A simple calculator widget built on [eww](https://github.com/elkowar/eww) and [qalculate](https://github.com/Qalculate/libqalculate)*
 
 ## Description
