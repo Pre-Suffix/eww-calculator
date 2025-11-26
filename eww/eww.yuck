@@ -1,0 +1,2 @@
+;; Includes the Calculator widget
+(include "eww-calculator.yuck")

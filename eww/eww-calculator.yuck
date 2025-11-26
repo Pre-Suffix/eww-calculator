@@ -1,0 +1,26 @@
+(defpoll calc_listen :interval "0.1s" "~/.config/eww/scripts/calculate.sh")
+(defpoll inp_listen  :interval "1s" "cat ~/.config/eww/scripts/prompt.txt")
+
+(defwidget calculator []
+    (eventbox :onhoverlost "swaymsg 'mode \"default\"' && eww close calculator"
+    (box :orientation "v" :space-evenly false :class "calc-win" :valign "center"
+      (box :orientation "h" :class "calculator-top"
+      (box :orientation "h" :class "calculator-bar" :hexpand true :space-evenly false
+        (label :class "calc-label" :text "")
+        (input :class "calc-bar" :hexpand true :value inp_listen :onchange "echo -n \"{}\" > ~/.config/eww/scripts/prompt.txt" :onaccept "~/.config/eww/scripts/copy-calc.sh")))
+      (box :orientation "h" :class "calc-result-box" :space-evenly false :halign "center" :valign "center" :vexpand true :hexpand true :width 500
+        (literal :class "calc-result" :halign "start" :valign "center" :vexpand true :hexpand true :content calc_listen))
+    )))
+
+
+(defwindow calculator
+  :monitor 0
+  :focusable true
+  :stacking "overlay"
+  :namespace "eww-calculator"
+  :geometry (geometry :x "33%"
+                      :y "50%"
+                      :width "500px"
+                      :height "130px"
+                      :anchor "center")
+(calculator))

@@ -1,0 +1,16 @@
+# Sample settings to launch the widget & be able to exit using Escape.
+set $calculator eww open --toggle calculator
+
+mode "calculator" {
+    bindsym Escape exec eww close calculator, mode "default"
+    bindsym $mod+Alt+Space exec $calculator, mode "default"
+}
+bindsym $mod+Alt+Space exec $calculator, mode "calculator"
+
+# The following is for those using SwayFX, to get a nice blur.
+layer_effects "eww-calculator" {
+    blur enable;
+    blur_xray disable;
+    blur_ignore_transparent disable;
+    shadows enable;
+}
